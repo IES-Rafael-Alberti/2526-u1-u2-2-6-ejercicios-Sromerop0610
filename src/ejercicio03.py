@@ -28,8 +28,22 @@ def contar_digitos_pares_impares(numero: int) -> tuple[int, int]:
         - Si el número es 0, devolver (1, 0)
     """
     # TODO: Implementar la función
-    return (0, 0)
+    if numero == 0:
+        return (1, 0)
+    numero = abs(numero)
 
+    pares = 0
+    impares = 0
+
+    while numero > 0:
+        digito = numero % 10
+        if digito % 2 == 0:
+            pares += 1
+        else:
+            impares += 1
+        numero = numero // 10
+
+    return (pares, impares)
 
 def extraer_digitos_pares(numero: int) -> str:
     """

@@ -33,12 +33,13 @@ def calcular_propina(importe: float, calidad: str) -> tuple[float, float]:
     if importe <= 0:
         return (0.0, 0.0)
 
+    calidad = calidad.lower()
     if calidad == "excelente":
-        propina = importe * 0,2
+        propina = importe * 0.2
     elif calidad == "bueno":
-        propina = importe * 0,15
+        propina = importe * 0.15
     elif calidad == "regular":
-        propina = importe * 0,1
+        propina = importe * 0.1
     else:
         return (0.0, importe)
     

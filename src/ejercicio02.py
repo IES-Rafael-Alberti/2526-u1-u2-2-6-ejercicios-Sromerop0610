@@ -31,7 +31,7 @@ def clasificar_temperatura(temperatura: float) -> tuple[str, bool]:
     # TODO: Implementar la función
     
     if temperatura <-50 or temperatura > 60:
-        return ("", False)
+        return ("Inválida", False)
     
     es_extrema = False
     if temperatura <-10 or temperatura > 40:
