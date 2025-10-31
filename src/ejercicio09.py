@@ -34,7 +34,34 @@ def simular_carrera(velocidad1: int, velocidad2: int, velocidad3: int, distancia
         - Todos los caracoles avanzan simultáneamente cada turno
     """
     # TODO: Implementar la función
-    return (0, 0)
+    if not (1 <= velocidad1 <= 10) or not (1 <= velocidad2 <= 10) or not (1 <= velocidad3 <= 10) or distancia_meta <= 0:
+        return (0, 0)
+    
+    turnos_necesarios = 0
+    aux = 0
+    
+    if velocidad1 >= velocidad2:
+         if velocidad1 >= velocidad3:
+            ganador = 1
+            aux = velocidad1
+         else:
+            ganador = 3
+            aux = velocidad3
+    else:
+        if velocidad2 >= velocidad3:
+            ganador = 2
+            aux = velocidad2
+        else:
+            ganador = 3
+            aux = velocidad3
+
+    turnos_necesarios = distancia_meta // aux
+    if distancia_meta % aux != 0:
+        turnos_necesarios = turnos_necesarios + 1
+    
+    return (ganador, turnos_necesarios)
+    
+    
 
 
 def solicitar_velocidades() -> tuple[int, int, int]:
