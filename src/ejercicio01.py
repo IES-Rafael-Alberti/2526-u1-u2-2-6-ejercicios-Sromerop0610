@@ -28,9 +28,24 @@ def calcular_propina(importe: float, calidad: str) -> tuple[float, float]:
         - Si la calidad no es válida, devuelve (0.0, importe)
         - La calidad se compara en minúsculas
     """
-    # TODO: Implementar la función
-    return (0.0, 0.0)
 
+    # TODO: Implementar la función
+    if importe <= 0:
+        return (0.0, 0.0)
+
+    calidad = calidad.lower()
+    if calidad == "excelente":
+        propina = importe * 0.2
+    elif calidad == "bueno":
+        propina = importe * 0.15
+    elif calidad == "regular":
+        propina = importe * 0.1
+    else:
+        return (0.0, importe)
+    
+    total = importe + propina
+
+    return (propina, total)
 
 def solicitar_importe() -> float:
     """
